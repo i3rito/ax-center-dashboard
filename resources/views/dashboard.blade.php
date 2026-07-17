@@ -41,7 +41,7 @@
 
         <section class="kpis" id="kpi-grid">
             <article class="kpi">
-                <span>Produzido</span>
+                <span>Produzidos</span>
                 <strong id="kpi-produced">{{ number_format($metrics['totals']['produced_qty'], 0, ',', '.') }}</strong>
             </article>
             <article class="kpi">
