@@ -90,13 +90,14 @@
 
         fetch('/api/insights', {
             method: 'POST',
+            credentials: 'same-origin',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': token,
                 'X-Requested-With': 'XMLHttpRequest'
             },
-            body: JSON.stringify({ view: this.view })
+            body: JSON.stringify({ view: this.view, _token: token })
         })
             .then(function (response) {
                 return response.json().then(function (body) {
@@ -132,6 +133,7 @@
         var self = this;
 
         return fetch('/api/metrics?view=' + encodeURIComponent(this.view), {
+            credentials: 'same-origin',
             headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
         })
             .then(function (response) {
